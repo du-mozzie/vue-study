@@ -1,10 +1,16 @@
 <template>
-  <li @mouseover="delBlock" @mouseleave="delNone" ref="item">
+  <li>
     <label>
-      <input type="checkbox" />
-      <span>{{content}}</span>
+      <input
+        type="checkbox"
+        :checked="todo.done"
+        @change="handleCheck(todo.id)"
+      />
+      <span>{{ todo.title }}</span>
     </label>
-    <button class="btn btn-danger" ref="btn" @click="deleteItem" style="display: none">删除</button>
+    <button class="btn btn-danger" ref="btn" @click="deleteItem(todo.id)">
+      删除
+    </button>
   </li>
 </template>
 
@@ -12,21 +18,16 @@
 export default {
   name: "TodoItem",
   methods: {
-    delBlock(){
-      this.$refs.btn.style.display = "block"
+    deleteItem(id) {
+      if (confirm("确定删除吗？")) {
+        this.deleteTodo(id);
+      }
     },
-    delNone(){
-      this.$refs.btn.style.display = "none"
+    handleCheck(id) {
+      this.changeTodo(id);
     },
-    deleteItem(){
-      
-    }
   },
-  props:{
-    content: {
-      type: String,
-    }
-  }
+  props: ["todo", "changeTodo", "deleteTodo"],
 };
 </script>
 
@@ -58,5 +59,13 @@ li:before {
 }
 li:last-child {
   border-bottom: none;
+}
+
+li:hover {
+  background-color: #deddde;
+}
+
+li:hover button {
+  display: block;
 }
 </style>
