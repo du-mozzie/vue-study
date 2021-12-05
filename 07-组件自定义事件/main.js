@@ -28,7 +28,4 @@ new Vue({
 
 	// template:`<h1>你好啊</h1>`,
 	// components:{App},
-	beforeCreate() {
-		Vue.prototype.$bus = this
-	},
 })

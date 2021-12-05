@@ -14,6 +14,15 @@ export default {
       address: "福建福州",
     };
   },
+  methods: {
+    alertName(name) {
+      alert(name);
+    },
+  },
+  mounted() {
+    //需要接收数据提供一个方法给发送数据方
+    this.$bus.$on("acceptStudentName", this.alertName);
+  },
 };
 </script>
 
