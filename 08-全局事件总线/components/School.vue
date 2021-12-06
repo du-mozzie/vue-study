@@ -2,6 +2,7 @@
   <div class="demo">
     <h2>学校名称：{{ name }}</h2>
     <h2>学校地址：{{ address }}</h2>
+    <button @click="deleteEvent">点我销毁事件</button>
   </div>
 </template>
 
@@ -18,11 +19,15 @@ export default {
     alertName(name) {
       alert(name);
     },
+    deleteEvent(){
+      this.$bus.$off('acceptStudentName')
+    }
   },
   mounted() {
     //需要接收数据提供一个方法给发送数据方
     this.$bus.$on("acceptStudentName", this.alertName);
   },
+  
 };
 </script>
 
