@@ -35,6 +35,7 @@ export default {
       this.changeTodo(id);
     },
     editItem(todo) {
+      // eslint-disable-next-line no-prototype-builtins
       if (todo.hasOwnProperty("isEdit")) {
         this.$set(todo, "isEdit", true);
       } else {
