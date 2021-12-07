@@ -12,12 +12,12 @@ const actions = {
     },
     jiaOdd(context, value) {
         if (context.state.sum % 2) {
-            context.commit('JIAODD', value)
+            context.commit('JIA_ODD', value)
         }
     },
     jiaWait(context, value) {
         setTimeout(() => {
-            context.commit('JIAWAIT', value)
+            context.commit('JIA_WAIT', value)
         }, 300);
     }
 }
@@ -29,10 +29,10 @@ const mutations = {
     JIAN(state, value) {
         state.sum -= value
     },
-    JIAODD(state, value) {
+    JIA_ODD(state, value) {
         state.sum += value
     },
-    JIAWAIT(state, value) {
+    JIA_WAIT(state, value) {
         state.sum += value
     }
 }

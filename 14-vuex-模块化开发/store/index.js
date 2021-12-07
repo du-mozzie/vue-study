@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import countAbout from '../store/modules/count'
-import personAbout from '../store/modules/person'
+import countAbout from './modules/count'
+import personAbout from './modules/person'
 
 Vue.use(Vuex)
 
