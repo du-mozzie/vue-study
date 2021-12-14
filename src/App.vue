@@ -1,27 +1,38 @@
 <template>
   <div>
-    <Count />
-    <hr>
-    <Person />
+    <Banner />
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <router-link class="list-group-item" replace active-class="active" to="/about"
+            >About</router-link
+          >
+          <router-link class="list-group-item" active-class="active" to="/home"
+            >Home</router-link
+          >
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="panel">
+          <div class="panel-body">
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Count from "./components/Count";
-import Person from "./components/Person";
+import Banner from "./components/Banner";
+
 export default {
   name: "app",
   components: {
-    Count,
-    Person,
+    Banner,
   },
 };
 </script>
 
 <style>
-.container,
-.foot {
-  display: flex;
-  justify-content: space-around;
-}
 </style>

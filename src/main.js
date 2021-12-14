@@ -2,8 +2,13 @@
 import Vue from 'vue'
 // 引入App
 import App from './App.vue'
-//引入store
-import store from './store'
+//引入router
+import VueRouter from 'vue-router'
+import router from './router'
+
+//使用router插件
+Vue.use(VueRouter)
+
 //关闭生产提示
 Vue.config.productionTip = false
 
@@ -12,9 +17,5 @@ Vue.config.productionTip = false
 new Vue({
     el: '#app',
     render: h => h(App),
-    store,
-    beforeCreate() {
-        //使用事件总线
-        Vue.prototype.$bus = this
-    },
+    router
 })
